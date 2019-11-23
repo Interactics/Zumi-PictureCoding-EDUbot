@@ -1,6 +1,7 @@
 # ZUMI PictureCoding EDUbot
 
 ---
+[TeamAlphaZUMI]
 
 한양대학교 ERICA 로봇공학과 박병우, 유호연, 이영준 
 
