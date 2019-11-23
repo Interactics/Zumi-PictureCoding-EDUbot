@@ -1,5 +1,4 @@
 # ZUMI PictureCoding EDUbot
-
 ---
 [TeamAlphaZUMI]
 
