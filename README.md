@@ -145,6 +145,6 @@ img_sub : /video 토픽을 서브스크라이브하여 영상을 출력합니다
 
 ZUMI : [https://www.robolink.com/zumi/](https://www.robolink.com/zumi/)
 
-PictureCoding 학습 CNN Model : ****[https://github.com/asingh33/CNNGestureRecognizer](https://github.com/asingh33/CNNGestureRecognizer)
+PictureCoding 학습 CNN Model : [https://github.com/asingh33/CNNGestureRecognizer](https://github.com/asingh33/CNNGestureRecognizer)
 
 LineDetection : [https://github.com/windowsub0406/SelfDrivingCarND](https://github.com/windowsub0406/SelfDrivingCarND)
