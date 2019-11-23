@@ -1,0 +1,1 @@
+/home/pi/catkin_ws/devel/.private/img_sub/share/img_sub/cmake/img_subConfig.cmake

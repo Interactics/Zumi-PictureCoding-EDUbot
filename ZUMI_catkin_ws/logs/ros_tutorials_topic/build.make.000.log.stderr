@@ -1,0 +1,3 @@
+make[2]: *** No rule to make target 'CMakeFiles/ros_tutorials_topic_node.dir/build'.  Stop.
+make[1]: *** [CMakeFiles/ros_tutorials_topic_node.dir/all] Error 2
+make: *** [all] Error 2

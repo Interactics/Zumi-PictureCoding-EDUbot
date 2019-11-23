@@ -1,0 +1,11 @@
+[31m[1mCMake Error[0m at /home/pi/catkin_ws/src/ros_tutorials_topic/CMakeLists.txt:132 (add_executable):
+  Cannot find source file:
+
+    src/ros_tutorials_topic_node.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+CMake Error: CMake can not determine linker language for target: ros_tutorials_topic_node
+CMake Error: Cannot determine link language for target "ros_tutorials_topic_node".

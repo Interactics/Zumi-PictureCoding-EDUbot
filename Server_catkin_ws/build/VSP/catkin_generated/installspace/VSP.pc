@@ -1,0 +1,8 @@
+prefix=/home/hy/catkin_ws2/install
+
+Name: VSP
+Description: Description of VSP
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/hy/catkin_ws2/install/lib 
+Requires: 

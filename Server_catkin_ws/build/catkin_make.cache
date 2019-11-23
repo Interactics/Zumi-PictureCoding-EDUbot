@@ -1,0 +1,2 @@
+Line_detect_ros:VSP:realsense-ros/realsense2_camera:realsense-ros/realsense2_description
+-DCATKIN_DEVEL_PREFIX=/home/hy/catkin_ws2/devel -DCMAKE_INSTALL_PREFIX=/home/hy/catkin_ws2/install -G Unix Makefiles

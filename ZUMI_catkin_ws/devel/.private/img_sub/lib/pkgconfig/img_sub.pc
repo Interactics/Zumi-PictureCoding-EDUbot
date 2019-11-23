@@ -1,0 +1,8 @@
+prefix=/home/pi/catkin_ws/devel/.private/img_sub
+
+Name: img_sub
+Description: Description of img_sub
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/pi/catkin_ws/devel/.private/img_sub/lib 
+Requires: 
