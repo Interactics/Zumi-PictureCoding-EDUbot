@@ -120,48 +120,11 @@ github의 Repo를 복사하여 사용합니다.
 - Gazebo map editor를 활용하여 제작되었습니다.
 - 조합하여 맵을 확장할 수 있습니다.
 
-    [](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#57b3d9c3dc4146f6bd9307182ae32ca2)
-
 ### 5. ZUMI URDF
 
 - 솔리드웍스를 사용하여 ZUMI를 구현합니다.
 - 모델을 활용하여 GAZEBO 환경에서 시뮬레이션합니다.
 
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#695a469df8ad4461b020901b0521d5b2)
-
-## Picture Coding Card
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#bcd123a0c8b245a981c8d927e5620c05)
-
-                        MUSIC
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#eeb7da2c9983457e93d739ea06bd8c22)
-
-                       HEART
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#439a102215e545c78f9ec366df60332a)
-
-BACKWARD
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#799fac1030dc4e5eb6465d57bccd10be)
-
-DONE
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#f9d9c496d61c46fb9ab52543eeca36df)
-
-START
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#8cb86ef6bc01492f961e666a143033ef)
-
-NOPE
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#02365b2778cb42baafe083903fdd66bd)
-
-TURN_RIGHT
-
-[](https://www.notion.so/3fee53cae75d4807bcd86133c4ae3602#829826bd4cb44a2fb3f6ef9544eb2d1b)
-
-TURN_LEFT
 
 # Node
 
