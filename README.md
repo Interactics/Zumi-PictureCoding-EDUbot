@@ -65,13 +65,26 @@ ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했�
 - CV_bridge
 - ros_serial
 
-# 설치 방법
+# 설치 및 사용 방법
 
 ---
+
+## 설치
 
 github의 Repo를 복사하여 사용합니다.
 
     git clone https://github.com/yhyingit/Zumi-PictureCoding-EDUbot.git
+    
+## 사용법
+
+ZUMI에서 카메라 켜기
+
+    rosrun Zumicam Zumicam.py
+
+서버PC에서 영상 받은 후 차선 검출 결과 표현
+
+    rosrun asdf asdf.py
+    
 
 # 기능
 
