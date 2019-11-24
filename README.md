@@ -80,10 +80,11 @@ github의 Repo를 복사하여 사용합니다.
 ZUMI에서 카메라 켜기
 
     rosrun Zumicam Zumicam.py
+    
 
 서버PC에서 영상 받은 후 차선 검출 결과 표현
 
-    rosrun asdf asdf.py
+    rosrun Line_detect_ros Line_detection_ROS.py
     
 
 # 기능
