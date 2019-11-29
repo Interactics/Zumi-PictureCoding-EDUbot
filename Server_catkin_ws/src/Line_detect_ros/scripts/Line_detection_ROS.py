@@ -5,6 +5,7 @@
 import rospy
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
+from Line_detect_ros.msg import center
 import cv2  
 import numpy as np
 
@@ -107,11 +108,13 @@ def callback(data):
     # canny_img = canny(blur_img, 70, 210)  
     img_to_canny = cv2.Canny(img_to_gauss, 70, 210)
 
+    #ROI
+
     vertices = np.array(
-        [[(50, height), (width / 2 - 45, height / 2 + 60), (width / 2 + 45, height / 2 + 60), (width - 50, height)]],
+        [[(50, height), (width * 1 / 5, height / 2 + 60), (width * 4 / 5, height / 2 + 60), (width - 50, height)]],
         dtype=np.int32)
 
-    ROI_img = region_of_interest(img_to_canny, vertices) 
+    ROI_img = region_of_interest(img_to_canny, vertices)
 
 
     line_arr = hough_lines(ROI_img, 1, 1 * np.pi / 180, 30, 10, 20)  
@@ -139,17 +142,21 @@ def callback(data):
         draw_fit_line(temp, left_fit_line)
         draw_fit_line(temp, right_fit_line)
 
+        #Center of Line
+
+        Center_of_Line_X = (left_fit_line[0] + left_fit_line[2] + right_fit_line[0] + right_fit_line[2]) // 4
+        Center_of_Line_Y = (left_fit_line[1] + left_fit_line[3] + right_fit_line[1] + right_fit_line[3]) // 4
+
         result = weighted_img(temp, image)  
         cv2.imshow('result', result)  
         cv2.waitKey(3)
 
 
 
-#        break
+# break
 
-# image.realse()
-# cv2.destroyAllWindows()
+#image.realse()
+#cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     LineDetection()
-
