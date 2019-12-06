@@ -50,10 +50,6 @@ img_channels = 3
 
 # Batch_size to train
 batch_size = 32
-
-## Number of output classes (change it accordingly)
-## eg: In my case I wanted to predict 4 types of gestures (Ok, Peace, Punch, Stop)
-## NOTE: If you change this then dont forget to change Labels accordingly
 nb_classes = 11
 
 # Number of epochs to train (change it accordingly)
@@ -171,10 +167,6 @@ def loadCNN(bTraining = False):
    
     
     return model
-
-
-
-
 
 ##### added
 
