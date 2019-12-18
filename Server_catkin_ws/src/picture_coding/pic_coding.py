@@ -7,12 +7,9 @@ from keras.layers import Conv2D, MaxPooling2D, ZeroPadding2D
 from keras.optimizers import SGD,RMSprop,adam
 from keras.utils import np_utils
 from keras.models import load_model
-
 from keras import backend as K
-
 import numpy as np
 import cv2
-
 
 if K.backend() == 'tensorflow':
     import tensorflow
@@ -26,8 +23,8 @@ K.set_image_dim_ordering('th')
 import numpy as np
 #import matplotlib.pyplot as plt
 import os
-
 from PIL import Image
+
 # SKLEARN
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
@@ -35,9 +32,12 @@ import json
 import time
 import cv2
 import matplotlib
+
 #matplotlib.use("TkAgg")
 from matplotlib import pyplot as plt
 import threading
+
+minValue = 70
 
 jsonarray = {}
 # input image dimensions
@@ -45,15 +45,9 @@ img_rows, img_cols = 200, 200
 
 # number of channels
 # For grayscale use 1 value and for color images use 3 (R,G,B channels)
-img_channels = 3
+img_channels = 1
 
-
-# Batch_size to train
-batch_size = 32
-nb_classes = 11
-
-# Number of epochs to train (change it accordingly)
-nb_epoch = 3  #25
+nb_classes = 10
 
 # Total number of convolutional filters to use
 nb_filters = 32
@@ -62,42 +56,9 @@ nb_pool = 2
 # Size of convolution kernel
 nb_conv = 3
 
+WeightFileName = []
 
-minValue = 70
-
-x0 = 220
-y0 = 50
-height = 200
-width = 200
-
-saveImg = False
-guessGesture = True
-visualize = False
-
-kernel = np.ones((15,15),np.uint8)
-kernel2 = np.ones((1,1),np.uint8)
-skinkernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
-
-# Which mask mode to use BinaryMask, SkinMask (True|False) OR BkgrndSubMask ('x' key)
-binaryMode = True
-bkgrndSubMode = False
-mask = 0
-bkgrnd = 0
-counter = 0
-# This parameter controls number of image samples to be taken PER gesture
-numOfSamples = 200
-gestname = ""
-path = ""
-mod = 0
-
-path = "./"
-path1 = "./gestures"    #path of folder of images
-
-## Path2 is the folder which is fed in to training model
-#path2 = './imgfolder_b'
-path2 = './dumb'
-
-output = ["BACKWARD", "TURN_LEFT", "DONE", "FALSE_LEFT",  "FORWARD", "FALSE_RIGHT", "HEART", "MUSIC", "NOPE", "START", "TURN_RIGHT"]
+output = ["BACKWARD", "DONE", "TURN_RIGHT", "FALSE_LEFT", "FORWARD", "FALSE_RIGHT", "MUSIC", "NOPE", "START", "TURN_LEFT"]
 
 
 def modlistdir(path, pattern = None):
@@ -142,9 +103,10 @@ def loadCNN(bTraining = False):
     model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['accuracy'])
     
     # Model summary
-    model.summary()
+    #model.summary()
+
     # Model conig details
-    model.get_config()
+    #model.get_config()
     
     if not bTraining :
         
@@ -155,8 +117,8 @@ def loadCNN(bTraining = False):
          else:
              print('Found these weight files - {}'.format(WeightFileName))
          #Load pretrained weights
-         #w = int(input("Which weight file to load (enter the INDEX of it, which starts from 0): "))
-         w = int(0)
+         # w = int(input("Which weight file to load (enter the INDEX of it, which starts from 0): "))
+         w = int(5)
          fname = WeightFileName[int(w)]
          print("loading ", fname)
          model.load_weights(fname)
@@ -167,6 +129,8 @@ def loadCNN(bTraining = False):
    
     
     return model
+
+
 
 ##### added
 
@@ -224,7 +188,7 @@ def auto_scan_image_via_webcam():
                 camSize = frame.shape[0] * frame.shape[1]
                 ratio = contourSize / frame.shape[1]
 
-                if ratio > 10 and contourSize>5000:
+                if ratio > 10 and contourSize > 5000:
                     screenCnt = approx
                     #print ratio
 
@@ -250,26 +214,38 @@ def auto_scan_image_via_webcam():
 
             M = cv2.getPerspectiveTransform(rect, dst)
             warped = cv2.warpPerspective(frame, M, (maxWidth, maxHeight))
-            cv2.imshow("Scanned", warped)
+            warp_gray = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
+            blur = cv2.GaussianBlur(warp_gray,(3,3),2)
+
+            th3 = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,11,2)
+            ret, res = cv2.threshold(th3, minValue, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+    		#blur = cv2.GaussianBlur(gray,(5,5),2)
+            cv2.imshow("Scanned", res)
 
             ## predict
 
-            img = warped
+            img = res
+            img = np.array(img).flatten()
             img = img.reshape(img_channels, img_rows, img_cols)
             img = img.astype('float32')
             img = img / 255
             img = img.reshape(1, img_channels, img_rows, img_cols)
-            model = loadCNN()
-            model.load_weights('./capture.hdf5')
+
+            #model = loadCNN()
+###############################################################
+            #model.load_weights('./newWeight3.hdf5')############
+###############################################################
             result = model.predict(img, steps=None)
+
             result = np.squeeze(result)
+            print(result)
             answer = result.argmax()
             print('')
             print('')
             print('')
 
             print ' The answer is', output[answer]
-            cv2.waitKey(10000)
+            cv2.waitKey(2)
 
             #break;
 
@@ -278,4 +254,27 @@ def auto_scan_image_via_webcam():
     cv2.waitKey(1)
 
 if __name__ == "__main__":
-    auto_scan_image_via_webcam()
+	model = loadCNN()
+	model.load_weights('./newWeight3.hdf5')
+	auto_scan_image_via_webcam()
+
+#
+# if __name__ == '__main__' :
+#
+#    img = cv2.imread('./backward_94 .png')
+#    img = img.reshape(img_channels, img_rows, img_cols)
+#
+#    # # float32
+#    img = img.astype('float32')
+#
+#    # # normalize it
+#    img = img / 255
+#
+#    # # reshape for NN
+#    img = img.reshape(1, img_channels, img_rows, img_cols)
+#
+#    model = loadCNN()
+#    model.load_weights('./capture.hdf5')
+#    result = model.predict(img, steps=None)
+#    print('backward')
+#    print(result)
