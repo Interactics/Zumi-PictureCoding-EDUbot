@@ -75,6 +75,7 @@ github의 Repo를 복사하여 사용합니다.
 
     git clone https://github.com/yhyingit/Zumi-PictureCoding-EDUbot.git
     
+    
 ## 사용법
 
 ZUMI에서 카메라 데이터를 퍼블리시하는 패키지입니다.
@@ -88,7 +89,10 @@ PC에서 ZUMI로부터 영상 받은 후 차선 검출 후 차선의 중간 값�
 PC에서 ZUMI가 받은 Picture Coding의 카드 모양을 뉴럴네트워크를 통해 모양을 추정한 뒤, 그 결과 값을 퍼블리시하는 패키지입니다.
 
     rosrun cardReader card_reader.py
+    
+- 12층(CNN 3층) 뉴럴네트워크 알고리즘을 활용해 PictureCoding 카드 3천장을 학습하여 10개의 클래스로 카드를 분류하였습니다.
 
+    
 PC에서 뉴럴네트워크로 처리한 카드의 정보 계속 구독한 후, 'DONE'(완료) 카드가 나올 때 까지 Stack 자료구조에 저장하는 패키지입니다.
 
     rosrun picCoding picCoding.py
@@ -153,11 +157,10 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 - "시계방향으로 90도 회전"과 "반시계방향으로 90도 회전" 카드는 ZUMI를 90도 만큼 회전시킵니다.
 - "시작"카드는 프로그래밍이 시작한다는 것을 알려주는 카드 입니다.
 - "끝"카드는 프로그래밍을 끝남을 알려주는 카드입니다.
-- "하트"카드는 좌우로 움직이며 ZUMI가 애교를 부리는 행동입니다.
 - "아니"카드는 직전에 인식시킨 프로그래밍을 취소할 때 사용하는 카드입니다.
-- "뮤직"카드를 보여주면 ZUMI가 두 바퀴를 회전하면서 LED를 깜빡거리고 부저를 작동시킵니다.
 - "일반적 표정"은 ZUMI의 일반적인 표정을 나타냅니다.
 - "웃는 표정"은 ZUMI가 정상적인 인식을 할 경우와 프로그램이 시작할 때 짓는 표정입니다.
+- 그외 카드는 인식할 수 없는 카드입니다.
 
 
 
@@ -165,17 +168,38 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 
 ## PC
 
-LineDetect : /video 토픽으로부터 이미지를 영상 정보를 선 검출을 한 뒤, 검출된 라인의 정보를 영상으로 표현합니다.
+LineDetect : 영상 정보인 /video 정보를 받아들인 후 /zumi/Pose 토픽으로 차선의 중앙 값을 퍼블리시합니다. 
+
+pic_code_collector : /zumi/piccode_Coding를 퍼블리시, /zumi/piccode_data를 서브스크라이브합니다. 
+이 노드는 PictureCoding 카드를 데이터로 토픽으로 전송된  /zumi/piccode_data를 Stack에 저장하는 역할을 합니다.
+'DONE' 카드가 입력되면 Stack에 저장된 데이터를 /zumi/piccode_Coding 토픽으로 퍼블리시합니다. 
+
 
 ## ZUMI
 
-video_pub :  영상정보인 /video 토픽을 퍼블리시합니다.
+video_pub : 영상정보인 /video 토픽을 퍼블리시합니다.
 
-img_sub : /video 토픽을 서브스크라이브하여 영상을 출력합니다.
+
+
+
+
 
 # Topic
 
-/video : 영상이미지입니다.
+/video : ZUMI 카메라가 보내는 영상 이미지
+/pic_code_collector: 
+/zumi/Pose : 감지된 차선의 중앙값
+/zumi/piccode_Coding :
+/zumi/piccode_data : Stack에 저장된 PictureCoding 데이터를  
+
+
+# 발생한 이슈
+
+- 카드를 인식하는 패키지인 cardReader 패키지는 해당 디렉토리에서 rosrun을 실행해야합니다.
+- 차선 인식 후 주행은 추후 계획입니다.
+- 
+
+
 
 # 참고
 
