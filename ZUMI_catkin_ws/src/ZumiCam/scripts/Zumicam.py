@@ -17,16 +17,18 @@ def start_node():
 
     ####open Camera and Camera setting
     img = cv2.VideoCapture(0)
-    img.set(3,400)
-    img.set(4,300)
-
+    img.set(3,640/4)
+    img.set(4,480/4)
+#    img = cv2.flip(img,0)
+#    img = cv2.flip(img,1)
+    
     #cv2.imshow("image",img)
     #cv2.waitKey(2000)
     
     bridge = CvBridge()
     #imgMsg = bridge.cv2_to_imgmsg(img, "bgr8")
 
-    pub = rospy.Publisher('video', Image, queue_size =10)
+    pub = rospy.Publisher('video', Image, queue_size =1)
     while not rospy.is_shutdown():
 
         ret, frame = img.read()
@@ -42,7 +44,7 @@ def start_node():
 #  if cv2.waitKey(2)&0xFF == 27:
 #            break
         
-        rospy.Rate(30).sleep()
+        rospy.Rate(5).sleep()
 
 
     img.release()
