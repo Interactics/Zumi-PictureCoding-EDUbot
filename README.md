@@ -77,15 +77,33 @@ github의 Repo를 복사하여 사용합니다.
     
 ## 사용법
 
-ZUMI에서 카메라 켜기
+ZUMI에서 카메라 데이터를 퍼블리시하는 패키지입니다.
 
-    rosrun Zumicam Zumicam.py
+    rosrun Zumicam Zumi_cam.py
+
+PC에서 ZUMI로부터 영상 받은 후 차선 검출 후 차선의 중간 값을 퍼블리시하는 패키지입니다.
+
+    rosrun zumi_line_detect Line_detection_ROS.py
+ 
+PC에서 ZUMI가 받은 Picture Coding의 카드 모양을 뉴럴네트워크를 통해 모양을 추정한 뒤, 그 결과 값을 퍼블리시하는 패키지입니다.
+
+    rosrun cardReader card_reader.py
+
+PC에서 뉴럴네트워크로 처리한 카드의 정보 계속 구독한 후, 'DONE'(완료) 카드가 나올 때 까지 Stack 자료구조에 저장하는 패키지입니다.
+
+    rosrun picCoding picCoding.py
     
+ZUMI에서 코딩 카드가 입력되면 해당 카드에 대한 정보를 표정으로 표현하는 패키지입니다.
 
-서버PC에서 영상 받은 후 차선 검출 결과 표현
-
-    rosrun Line_detect_ros Line_detection_ROS.py
+    rosrun Zumi_face zumi_face.py
     
+ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다.
+
+    rosrun Zumi_move zumi_move.py
+
+
+
+
 
 # 기능
 
@@ -112,7 +130,7 @@ ZUMI에서 카메라 켜기
 - 인식된 카드의 모양을 디스플레이에 표현합니다.
 - 인식된 카드 모양을 화면에 표현한 후 상황에 맞는 표정 및 움직임을 표현합니다.
 
-[ ZUMI디스플레이 표현](https://www.notion.so/50861e024bcd44c2af302d7f1b26876c)
+[ZUMI디스플레이 표현](https://www.notion.so/50861e024bcd44c2af302d7f1b26876c)
 
 [ZUMI 감정 표현](https://www.notion.so/98cd471a58834eaf897d699f9848e860)
 
