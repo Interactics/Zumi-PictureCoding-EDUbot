@@ -160,4 +160,3 @@ def callback(data):
 
 if __name__ == '__main__':
     LineDetection()
-
