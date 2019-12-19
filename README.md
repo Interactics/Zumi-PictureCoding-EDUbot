@@ -57,6 +57,9 @@ ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했�
 
 - Raspbian Jessie (debian 8)
 - ROS Kinetic Kame
+- OpenCV 3.3.1
+- python 2.7
+
 
 # ROS 의존파일
 
@@ -134,6 +137,7 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 - 인식된 카드의 모양을 디스플레이에 표현합니다.
 - 인식된 카드 모양을 화면에 표현한 후 상황에 맞는 표정 및 움직임을 표현합니다.
 
+
 [ZUMI디스플레이 표현](https://www.notion.so/50861e024bcd44c2af302d7f1b26876c)
 
 [ZUMI 감정 표현](https://www.notion.so/98cd471a58834eaf897d699f9848e860)
@@ -197,7 +201,6 @@ video_pub : 영상정보인 /video 토픽을 퍼블리시합니다.
 
 - 카드를 인식하는 패키지인 cardReader 패키지는 해당 디렉토리에서 rosrun을 실행해야합니다.
 - 차선 인식 후 주행은 추후 계획입니다.
-- 
 
 
 
