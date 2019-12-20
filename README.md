@@ -1,3 +1,4 @@
+
 # ZUMI PictureCoding EDUbot
 ---
 [TeamAlphaZUMI]
@@ -148,7 +149,7 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 - Gazebo map editor를 활용하여 제작되었습니다.
 - 조합하여 맵을 확장할 수 있습니다.
 
-### 5. ZUMI URDF
+### 5. ZUMI URDF -- 미완성
 
 - 솔리드웍스를 사용하여 ZUMI를 구현합니다.
 - 모델을 활용하여 GAZEBO 환경에서 시뮬레이션합니다.
@@ -190,11 +191,11 @@ video_pub : 영상정보인 /video 토픽을 퍼블리시합니다.
 
 # Topic
 
-/video : ZUMI 카메라가 보내는 영상 이미지
-/pic_code_collector: 
-/zumi/Pose : 감지된 차선의 중앙값
-/zumi/piccode_Coding :
-/zumi/piccode_data : Stack에 저장된 PictureCoding 데이터를  
+- /video : ZUMI 카메라가 보내는 영상 이미지
+- /pic_code_collector: 
+- /zumi/Pose : 감지된 차선의 중앙값
+- /zumi/piccode_Coding :
+- /zumi/piccode_data : Stack에 저장된 PictureCoding 데이터를  
 
 
 # 발생한 이슈
