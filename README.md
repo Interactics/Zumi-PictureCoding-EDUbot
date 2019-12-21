@@ -93,14 +93,16 @@ ZUMI에서 카메라 데이터를 퍼블리시하는 패키지입니다.
 
     rosrun Zumicam Zumi_cam.py
 
+
 PC에서 ZUMI로부터 영상 받은 후 차선 검출 후 차선의 중간 값을 퍼블리시하는 패키지입니다.
 
     rosrun zumi_line_detect Line_detection_ROS.py
- 
+
+
 PC에서 ZUMI가 받은 Picture Coding의 카드 모양을 뉴럴네트워크를 통해 모양을 추정한 뒤, 그 결과 값을 퍼블리시하는 패키지입니다.
 
     rosrun cardReader card_reader.py
-    
+
 - 12층(CNN 3층) 뉴럴네트워크 알고리즘을 활용해 PictureCoding 카드 3천장을 학습하여 10개의 클래스로 카드를 분류하였습니다.
 
     
@@ -108,9 +110,11 @@ PC에서 뉴럴네트워크로 처리한 카드의 정보 계속 구독한 후, 
 
     rosrun picCoding picCoding.py
     
+    
 ZUMI에서 코딩 카드가 입력되면 해당 카드에 대한 정보를 표정으로 표현하는 패키지입니다.
 
     rosrun Zumi_face zumi_face.py
+    
     
 ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다.
 
@@ -124,7 +128,7 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 
 ---
 
-이 시스템은 PC와 ZUMI의 이 기종 통신으로 작동합니다.
+이 시스템은 PC와 ZUMI의 기종 통신으로 작동합니다.
 
 ### 1. PictureCoding
 
@@ -132,6 +136,9 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 - CNN 활용하여 PictureCoding 카드를 인식하는 알고리즘을 가집니다..
 - '시작' 카드를 인식시켜 코딩 단계에 돌입하며 '끝' 카드로 코딩단계를 종료합니다.
 - 코딩 단계에서 사용자와 ZUMI와 상호작용을 통해 카드 인식상태를 확인할 수 있습니다.
+
+![주석 2019-12-21 161853](https://user-images.githubusercontent.com/56077549/71304727-b353a680-240d-11ea-9d10-19f83edd239c.png)
+
 
 ### 2. 자율 주행 기능
 
@@ -144,11 +151,6 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 - Adafruit SSD1306 디스플레이를 활용하여 ZUMI의 표정을 표현합니다.
 - 인식된 카드의 모양을 디스플레이에 표현합니다.
 - 인식된 카드 모양을 화면에 표현한 후 상황에 맞는 표정 및 움직임을 표현합니다.
-
-
-[ZUMI디스플레이 표현](https://www.notion.so/50861e024bcd44c2af302d7f1b26876c)
-
-[ZUMI 감정 표현](https://www.notion.so/98cd471a58834eaf897d699f9848e860)
 
 
 ### 4. GAZEBO MAP
@@ -184,17 +186,17 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 
 ## PC
 
-LineDetect : 영상 정보인 /video 정보를 받아들인 후 /zumi/Pose 토픽으로 차선의 중앙 값을 퍼블리시합니다. 
-
-pic_code_collector : /zumi/piccode_Coding를 퍼블리시, /zumi/piccode_data를 서브스크라이브합니다. 
-이 노드는 PictureCoding 카드를 데이터로 토픽으로 전송된  /zumi/piccode_data를 Stack에 저장하는 역할을 합니다.
-'DONE' 카드가 입력되면 Stack에 저장된 데이터를 /zumi/piccode_Coding 토픽으로 퍼블리시합니다. 
+- piccode_data : 이미지로부터 코딩 카드를 인식하는 노드입니다. 
+- LineDetect : 차선을 인식한 후 차선의 중앙값을 퍼블리시 하는 노드입니다. 
+- pic_code_collector: Picutre Coding의 카드 데이터를 인식한 후 처리된 코딩 카드를 저장하는 노드입니다. 
+ 데이터를 /zumi/piccode_Coding 토픽으로 퍼블리시합니다. 
 
 
 ## ZUMI
 
-video_pub : 영상정보인 /video 토픽을 퍼블리시합니다.
-
+- video_pub : 영상정보인 /video 토픽을 퍼블리시 노드입니다.
+- zumi_face : 디스플레이를 담당하는 노드입니다.
+- Move_Zumi : 아두이노와 연결되어 모터 제어를 담당하는 노드입니다.
 
 
 
@@ -202,11 +204,10 @@ video_pub : 영상정보인 /video 토픽을 퍼블리시합니다.
 
 # Topic
 
-- /video : ZUMI 카메라가 보내는 영상 이미지
-- /pic_code_collector: 
-- /zumi/Pose : 감지된 차선의 중앙값
-- /zumi/piccode_Coding :
-- /zumi/piccode_data : Stack에 저장된 PictureCoding 데이터를  
+- /video : ZUMI 카메라가 보내는 영상 이미지 토픽
+- /zumi/Pose : 감지된 차선의 중앙값 
+- /zumi/piccode_Coding : 저장된 카드 데이터를 모터 노드에 던지기 위해 만든 토픽
+- /zumi/piccode_data : 카메라로부터 카드 이미지를 받아 처리 후 토픽으로 만들어진 최초의 카드 이미지 토픽
 
 
 # 발생한 이슈
