@@ -179,6 +179,8 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 # Node
 
 
+![주석 2019-12-21 153127](https://user-images.githubusercontent.com/56077549/71304219-142bb080-2407-11ea-9d4a-e2331560a07b.png)
+
 
 ## PC
 
