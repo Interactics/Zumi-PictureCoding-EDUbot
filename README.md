@@ -75,9 +75,16 @@ ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했�
 
 ## 설치
 
+### Raspbian Jessie ROS 설치
+http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi 지시사항을 따릅니다.
+
+### 코드 사용 
+
 github의 Repo를 복사하여 사용합니다.
 
     git clone https://github.com/yhyingit/Zumi-PictureCoding-EDUbot.git
+    
+
     
     
 ## 사용법
@@ -171,6 +178,8 @@ ZUMI에서 각 카드 정보에 따라 로봇을 구동하는 패키지입니다
 
 # Node
 
+
+
 ## PC
 
 LineDetect : 영상 정보인 /video 정보를 받아들인 후 /zumi/Pose 토픽으로 차선의 중앙 값을 퍼블리시합니다. 
@@ -207,8 +216,11 @@ video_pub : 영상정보인 /video 토픽을 퍼블리시합니다.
 
 # 참고
 
+Raspbian + ROS 설치 :[http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi]
+
 ZUMI : [https://www.robolink.com/zumi/](https://www.robolink.com/zumi/)
 
 PictureCoding 학습 CNN Model : [https://github.com/asingh33/CNNGestureRecognizer](https://github.com/asingh33/CNNGestureRecognizer)
 
 LineDetection : [https://github.com/windowsub0406/SelfDrivingCarND](https://github.com/windowsub0406/SelfDrivingCarND)
+
