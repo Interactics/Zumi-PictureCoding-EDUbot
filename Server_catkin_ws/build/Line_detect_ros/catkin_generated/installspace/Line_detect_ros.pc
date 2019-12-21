@@ -1,8 +1,0 @@
-prefix=/home/hy/catkin_ws2/install
-
-Name: Line_detect_ros
-Description: Description of Line_detect_ros
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/hy/catkin_ws2/install/lib 
-Requires: 

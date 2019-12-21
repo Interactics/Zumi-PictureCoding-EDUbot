@@ -1,1 +1,0 @@
-/home/pi/catkin_ws/devel/.private/ZumiCam/share/ZumiCam/cmake/ZumiCamConfig.cmake

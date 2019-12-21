@@ -1,6 +1,0 @@
-[35m[1mScanning dependencies of target ros_tutorials_topic_node[0m
-make[2]: *** No rule to make target 'CMakeFiles/ros_tutorials_topic_node.dir/build'.  Stop.
-CMakeFiles/Makefile2:643: recipe for target 'CMakeFiles/ros_tutorials_topic_node.dir/all' failed
-Makefile:138: recipe for target 'all' failed
-make[1]: *** [CMakeFiles/ros_tutorials_topic_node.dir/all] Error 2
-make: *** [all] Error 2

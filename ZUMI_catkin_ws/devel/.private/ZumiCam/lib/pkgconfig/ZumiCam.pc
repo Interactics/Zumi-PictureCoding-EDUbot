@@ -1,8 +1,0 @@
-prefix=/home/pi/catkin_ws/devel/.private/ZumiCam
-
-Name: ZumiCam
-Description: Description of ZumiCam
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/pi/catkin_ws/devel/.private/ZumiCam/lib 
-Requires: 

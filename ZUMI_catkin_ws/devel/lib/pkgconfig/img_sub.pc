@@ -1,1 +1,0 @@
-/home/pi/catkin_ws/devel/.private/img_sub/lib/pkgconfig/img_sub.pc
