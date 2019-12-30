@@ -1,5 +1,5 @@
 
-# ZUMI PictureCoding EDUbot
+# ZUMI, EduRobot with PictureCoding system 
 ---
 [TeamAlphaZUMI]
 
