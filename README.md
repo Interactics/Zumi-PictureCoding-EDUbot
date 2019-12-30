@@ -1,10 +1,12 @@
 
 # ZUMI, Education Robot with Picture Coding System
 ---
+
 [TeamAlphaZUMI]
 
-한양대학교 ERICA 로봇공학과 박병우, 유호연, 이영준 
-# Overview
+유호연, 박병우, 이영준 at Hanyang Univ.ERICA, Department of Robotics
+
+# Overview 개요 
 
 ---
 
@@ -17,9 +19,6 @@ For expansion of Artifical Intelligence and Programming Education, We create <Pi
 <Picture Coding System> is a Control system of Robot's action by showing the picture card. 
     
 After detecting each Picture cards, the robot show a fact that it is recognized by interaction to users.
-
-
-# 개요
 
 ---
 
