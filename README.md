@@ -4,6 +4,13 @@
 [TeamAlphaZUMI]
 
 한양대학교 ERICA 로봇공학과 박병우, 유호연, 이영준 
+# Overview
+
+---
+
+This Project is made for Hanyang Univ. ERICA's ROBOT PROGRAMMING Lecture.
+The Object of this one is to make ROS Package of Zumi which is Product of Robolink.inc.
+
 
 # 개요
 
