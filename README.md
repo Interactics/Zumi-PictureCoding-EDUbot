@@ -9,7 +9,14 @@
 ---
 
 This Project is made for Hanyang Univ. ERICA's ROBOT PROGRAMMING Lecture.
-The Object of this one is to make ROS Package of Zumi which is Product of Robolink.inc.
+
+The object of this one is to make ROS Package of Zumi which is a product of Robolink.inc.
+
+For expansion of Artifical Intelligence and Programming Education, We create <Picture Coding> system.
+
+<Picture Coding System> is a Control system of Robot's action by showing the picture card. 
+    
+After detecting each Picture cards, the robot show a fact that it is recognized by interaction to users.
 
 
 # 개요
