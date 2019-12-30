@@ -6,7 +6,7 @@
 
 유호연, 박병우, 이영준 at Hanyang Univ.ERICA, Department of Robotics
 
-# Overview 개요 
+# Overview. 개요 
 
 ---
 
@@ -32,7 +32,7 @@ Picture Coding은 그림 카드를 ZUMI에게 보여줌으로 로봇의 행동�
 
 ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했다는 사실을 상호작용을 통하여 전달합니다.
 
-# 하드웨어 개발환경
+# Hardware Development Environment. 하드웨어 개발환경
 
 ---
 
@@ -40,19 +40,18 @@ ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했�
 
 ---
 
-- 아두이노 UNO
+- Arudino UNO
 - RaspberryPi Zero W
-- DC 모터 2개
-- IR 6개
-- LED 2개
+- 2 DC Motors
+- 6 IR sensors
 - PiCam
-- 디스플레이 Adafruit ssd1306
+- Adafruit ssd1306 Display
 
-# 소프트웨어 개발환경
+# Software Development Environment. 소프트웨어 개발환경
 
 ---
 
-## Computer
+## Computer (Server)
 
 ---
 
@@ -65,7 +64,7 @@ ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했�
 - Theano 1.0.4
 - Tensorflow 1.13.1
 
-## ZUMI
+## ZUMI (Robot)
 
 ---
 
@@ -75,23 +74,28 @@ ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했�
 - python 2.7
 
 
-# ROS 의존파일
+# ROS Dependency File. ROS 의존파일
 
 ---
 
 - CV_bridge
 - ros_serial
 
-# 설치 및 사용 방법
+# Installation and How to Use. 설치 및 사용 방법
 
 ---
 
-## 설치
+## Installation. 설치
 
-### Raspbian Jessie ROS 설치
-http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi 지시사항을 따릅니다.
+### Raspbian Jessie. ROS 설치
+Follow the link below 
+아래의 지시를 따릅니다.
 
-### 코드 사용 
+http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi 
+
+### Code Use. 코드 사용 
+
+Copy and Paste this github repo.
 
 github의 Repo를 복사하여 사용합니다.
 
@@ -100,12 +104,16 @@ github의 Repo를 복사하여 사용합니다.
 
     
     
-## 사용법
+## How to use. 사용법
+
+The Package for publishing Zumi's Video data.
 
 ZUMI에서 카메라 데이터를 퍼블리시하는 패키지입니다.
 
     rosrun Zumicam Zumi_cam.py
 
+
+After Subscribing Zumi's Video data and detecting lanes, Publishing the x and y value of Two lanes's averages.
 
 PC에서 ZUMI로부터 영상 받은 후 차선 검출 후 차선의 중간 값을 퍼블리시하는 패키지입니다.
 
