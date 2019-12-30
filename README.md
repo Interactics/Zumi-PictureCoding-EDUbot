@@ -18,8 +18,7 @@ For expansion of Artifical Intelligence and Programming Education, We create <Pi
 
 <Picture Coding System> is a Control system of Robot's action by showing the picture card. 
     
-After detecting each Picture cards, the robot show a fact that it is recognized by interaction to users.
-
+After detecting each Picture cards, the robot show a fact that it is recognized by display to users.
 ---
 
 한양대학교 ERICA 로봇공학과 로봇프로그래밍 수업의 일환으로 제작되었습니다. 
