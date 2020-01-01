@@ -10,7 +10,7 @@
 
 ---
 
-This Project is made for the Robot Programming Lecture of Hanyang Univ. ERICA.
+**ZUMI, Education Robot with Picture Coding System** is made for the Robot Programming Lecture of Hanyang Univ. ERICA.
 The object of this one is to make ROS Package of Zumi which is a product of Robolink.inc.
 For expansion of Artifical Intelligence and Programming Education, We create \<Picture Coding\> system.
 
