@@ -10,7 +10,7 @@
 
 ---
 
-This Project is made for Hanyang Univ. ERICA's ROBOT PROGRAMMING Lecture.
+This Project is made for the Robot Programming Lecture of Hanyang Univ. ERICA.
 The object of this one is to make ROS Package of Zumi which is a product of Robolink.inc.
 For expansion of Artifical Intelligence and Programming Education, We create \<Picture Coding\> system.
 
