@@ -22,14 +22,11 @@ After detecting each Picture cards, the robot show a fact that it is recognized 
 
 ---
 
-한양대학교 ERICA 로봇공학과 로봇프로그래밍 수업의 일환으로 제작되었습니다. 
-
+**ZUMI, Education Robot with Picture Coding System**는  한양대학교 ERICA 로봇공학과 로봇프로그래밍 수업의 일환으로 제작되었습니다. 
 ZUMI는 Robolink사의 제품으로 이를 활용하여 ROS 패키지 제작 프로젝트를 진행하였습니다.
-
 인공지능과 프로그래밍 교육이라는 기능을 확장하기 위해 Picture Coding을 활용하여 ZUMI의 사용 연령층을 확장시켰습니다.
 
 Picture Coding은 그림 카드를 ZUMI에게 보여줌으로 로봇의 행동을 프로그래밍처럼 제어할 수 있는 기능입니다.
-
 ZUMI는 각 그림 카드를 인식한 후 사용자에게 자신이 인식했다는 사실을 상호작용을 통하여 전달합니다.
 
 # Hardware Development Environment. 하드웨어 개발환경
